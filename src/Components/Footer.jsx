@@ -1,10 +1,58 @@
 import React from "react";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+
+  const formattedDate = today.toLocaleString("en-US", {
+    dateStyle: "full",
+    timeStyle: "short",
+  });
+
   return (
-    <div>
-      <h2 className="text-white">This is Footer</h2>
-    </div>
+    <footer className="py-10 bg-black text-white">
+      {/* Social Icons */}
+      <div className="flex justify-center gap-6 text-3xl mb-6">
+        <a
+          href="https://www.facebook.com/g.lap.raj"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-cyan-400 transition"
+        >
+          <FaFacebook />
+        </a>
+
+        <a
+          href="https://github.com/md-tahmid-hasan-golap"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-cyan-400 transition"
+        >
+          <FaGithub />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/feed/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-cyan-400 transition"
+        >
+          <FaLinkedin />
+        </a>
+      </div>
+
+      {/* Date & Time */}
+      <p className="text-center text-gray-300 font-medium mb-2">
+        {formattedDate}
+      </p>
+
+      {/* Copyright */}
+      <p className="text-center text-gray-400 text-sm">
+        © {year} All rights reserved by{" "}
+        <span className="text-white font-semibold">Tahmid Hasan Golap</span>
+      </p>
+    </footer>
   );
 };
 
