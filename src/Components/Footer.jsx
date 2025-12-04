@@ -50,7 +50,7 @@ const Footer = () => {
       {/* Copyright */}
       <p className="text-center text-gray-400 text-sm">
         © {year} All rights reserved by{" "}
-        <span className="text-white font-semibold">Tahmid Hasan Golap</span>
+        <span className="text-blue-400 font-semibold">Tahmid Hasan Golap</span>
       </p>
     </footer>
   );
