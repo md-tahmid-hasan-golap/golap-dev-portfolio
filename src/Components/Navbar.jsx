@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
-import logo from "../../src/assets/myimage.png.png"; // Path thik ache kina check koro
+import { Link, useLocation } from "react-router-dom";
+import logo from "../../src/assets/myimage.png.png"; // Path ঠিক আছে কিনা চেক করো
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation(); // Active route detect করার জন্য
 
   const navLinks = [
     { name: "About", to: "/about" },
@@ -36,15 +37,22 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center">
               <div className="flex items-baseline space-x-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.to}
-                    className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.to;
+                  return (
+                    <Link
+                      key={link.name}
+                      to={link.to}
+                      className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                        isActive
+                          ? "text-blue-400"
+                          : "text-gray-300 hover:text-cyan-400"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -72,16 +80,23 @@ const Navbar = () => {
           }`}
         >
           <div className="px-4 pt-3 pb-4 space-y-1 bg-black border-b border-gray-800">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.to}
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.to}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors ${
+                    isActive
+                      ? "text-blue-400"
+                      : "text-gray-300 hover:text-white hover:bg-gray-900"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </nav>
