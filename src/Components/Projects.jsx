@@ -1,26 +1,37 @@
 import React, { useState } from "react";
-import ProjectCard from "./ProjectCard ";
+
 import Modal from "./Modal";
+import { motion, AnimatePresence } from "framer-motion";
+import ProjectCard from "./ProjectCard ";
 
 const Projects = () => {
   const [selected, setSelected] = useState(null);
 
   const projects = [
     {
-      name: "TourMate",
-      title: "Complete tour booking & management platform.",
-      img: "../../src/assets/ture.png",
-      tech: ["React", "Tailwind", "Node", "Express", "MongoDB", "Firebase"],
-      client: "https://github.com/md-tahmid-hasan-golap/tour-booking-client",
-      server: "https://github.com/md-tahmid-hasan-golap/tour-booking-server",
-      live: "https://ture-booking.web.app/",
+      name: "MyShop",
+      title: "Next.js Authentication-based Product Shop.",
+      img: "/nextshop.png", // এখানে তোর প্রজেক্টের thumbnail দিবি
+      tech: [
+        "Next.js",
+        "NextAuth.js",
+        "React",
+        "Tailwind",
+        "Express",
+        "MongoDB",
+        "Axios",
+        "Framer Motion",
+      ],
+      client: "https://github.com/md-tahmid-hasan-golap/nextShop-Frontend",
+      server: "https://github.com/md-tahmid-hasan-golap/nextShop-Backend",
+      live: "https://next-shop-ten-ruby.vercel.app/",
       description:
-        "TourMate is a full-stack tour booking platform with Firebase Authentication, CRUD operations, JWT API, and responsive UI.",
+        "MyShop is a modern Next.js full-stack application with secure authentication using NextAuth.js (Google + Credentials), protected routes, product CRUD system, search, and a fully responsive UI with smooth animations.",
     },
     {
       name: "Import Export Hub",
       title: "Modern web platform for global trade.",
-      img: "../../src/assets/export.png",
+      img: "/emportExportHub.png",
       tech: ["React", "Tailwind", "Node", "Express", "MongoDB", "Firebase"],
       client: "https://github.com/md-tahmid-hasan-golap/Import-Export-Hub",
       server:
@@ -32,18 +43,23 @@ const Projects = () => {
     {
       name: "GameHub",
       title: "An engaging online game library.",
-      img: "../../src/assets/gaheHub.png",
+      img: "/gaheHub.png",
       tech: ["React", "Tailwind", "Firebase", "Motion", "React Slick Carousel"],
       client: "https://github.com/md-tahmid-hasan-golap/game-hub",
       live: "https://gamehub-bae91.web.app/",
       description:
-        "GameHub is an online library for discovering indie games, installing them, and interacting with a responsive, animated UI.",
+        "GameHub helps users discover indie games, install them, and experience a smooth animated UI.",
     },
   ];
 
   return (
-    <div className="p-6 bg-black min-h-screen">
-      <h2 className="text-3xl font-bold pt-5 pb-10">Projects</h2>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="p-6 bg-black min-h-screen"
+    >
+      <h2 className="text-3xl font-bold pt-5 pb-10 text-white">Projects</h2>
 
       <div className="grid md:grid-cols-3 gap-6">
         {projects.map((p, i) => (
@@ -51,8 +67,12 @@ const Projects = () => {
         ))}
       </div>
 
-      <Modal project={selected} onClose={() => setSelected(null)} />
-    </div>
+      <AnimatePresence>
+        {selected && (
+          <Modal project={selected} onClose={() => setSelected(null)} />
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 

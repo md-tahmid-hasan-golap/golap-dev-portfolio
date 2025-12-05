@@ -1,8 +1,16 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const ProjectCard = ({ project, onOpen }) => {
   return (
-    <div className="bg-black/90 rounded-xl p-4 shadow-lg border border-cyan-500">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="bg-black/90 rounded-xl p-4 shadow-lg border border-cyan-500"
+    >
       <img
         src={project.img}
         alt={project.name}
@@ -38,36 +46,31 @@ const ProjectCard = ({ project, onOpen }) => {
           <a
             href={project.client}
             target="_blank"
-            rel="noopener noreferrer"
             className="text-cyan-400 underline"
           >
             Client
           </a>
         )}
-
         {project.server && (
           <a
             href={project.server}
             target="_blank"
-            rel="noopener noreferrer"
             className="text-cyan-400 underline"
           >
             Server
           </a>
         )}
-
         {project.live && (
           <a
             href={project.live}
             target="_blank"
-            rel="noopener noreferrer"
             className="text-cyan-400 underline"
           >
             Live
           </a>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
