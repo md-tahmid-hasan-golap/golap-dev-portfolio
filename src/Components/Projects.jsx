@@ -15,7 +15,6 @@ const Projects = () => {
       tech: [
         "Next.js",
         "NextAuth.js",
-        "React",
         "Tailwind",
         "Express",
         "MongoDB",
@@ -42,13 +41,23 @@ const Projects = () => {
     },
     {
       name: "GameHub",
-      title: "An engaging online game library.",
+      title: "Plant a Tree, Grow a Future",
       img: "/gaheHub.png",
       tech: ["React", "Tailwind", "Firebase", "Motion", "React Slick Carousel"],
       client: "https://github.com/md-tahmid-hasan-golap/game-hub",
       live: "https://gamehub-bae91.web.app/",
       description:
         "GameHub helps users discover indie games, install them, and experience a smooth animated UI.",
+    },
+    {
+      name: "Green Earth",
+      title: "An engaging online game library.",
+      img: "/green.png",
+      tech: ["Html", "Css", "Tailwind", "DaisyUI"],
+      client: "https://github.com/md-tahmid-hasan-golap/Assignment-Six",
+      live: "https://gamehub-bae91.web.app/",
+      description:
+        "Join our mission to plant 1 million trees and make the Earth greener for future generations",
     },
   ];
 
