@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 const SkillsCarousel = () => {
   const skills = [
-    { name: "HTML", img: "../../src/assets/download.png" },
-    { name: "CSS", img: "../../src/assets/css.png" },
-    { name: "Tailwind", img: "../../src/assets/tailwind.png" },
-    { name: "JavaScript", img: "../../src/assets/javaScripts.png" },
-    { name: "React.js", img: "../../src/assets/react.png" },
-    { name: "Node.js", img: "../../src/assets/node.png" },
-    { name: "MongoDB", img: "../../src/assets/mongodb.png" },
+    { name: "HTML", img: "/imges/download.png" },
+    { name: "CSS", img: "/imges/css.png" },
+    { name: "Tailwind", img: "/imges/tailwind.png" },
+    { name: "JavaScript", img: "/imges/javaScripts.png" },
+    { name: "React.js", img: "/imges/react.png" },
+    { name: "Node.js", img: "/imges/node.png" },
+    { name: "MongoDB", img: "/imges/mongodb.png" },
   ];
 
   return (
