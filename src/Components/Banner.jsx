@@ -113,7 +113,7 @@ const Banner = () => {
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-96 bg-gray-800 rounded-xl overflow-hidden shadow-2xl"
+            className="w-64 sm:w-72 md:w-80 bg-gray-800 rounded-xl overflow-hidden shadow-2xl"
             whileHover={{
               scale: 1.05,
               boxShadow: "0px 20px 40px rgba(0,0,0,0.5)",
@@ -122,7 +122,7 @@ const Banner = () => {
             <img
               src={golap}
               alt="Golap"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </motion.div>
         </motion.div>
