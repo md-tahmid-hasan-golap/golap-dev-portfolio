@@ -1,16 +1,32 @@
 import React from "react";
 import Banner from "./Banner";
-import AboutSection from "./AboutSection ";
-import SkillsCarousel from "./SkillsCarousel ";
+import Skills from "./Skills";
 import Projects from "./Projects";
+import Contact from "./Contact";
+import About from "./About";
 
 const Home = () => {
   return (
     <div>
-      <Banner></Banner>
-      <AboutSection></AboutSection>
-      <SkillsCarousel></SkillsCarousel>
-      <Projects></Projects>
+      <section id="home">
+        <Banner />
+      </section>
+
+      <section id="about">
+        <About />
+      </section>
+
+      <section id="skills">
+        <Skills />
+      </section>
+
+      <section id="projects">
+        <Projects />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
     </div>
   );
 };

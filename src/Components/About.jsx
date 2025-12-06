@@ -19,6 +19,10 @@ const About = () => {
 
       {/* RIGHT = Text Content */}
       <div className="flex-1">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10">
+          About Me
+        </h2>
+
         <h2 className="text-4xl font-bold mb-2 text-cyan-400">
           &lt;I’m Tahmid Hasan Golap /&gt;
         </h2>
