@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import golap from "../../src/assets/unnamed (2).jpg";
 
 const socialIcons = [
-  { icon: <Facebook />, color: "text-blue-600", link: "https://facebook.com" },
+  {
+    icon: <Facebook />,
+    color: "text-blue-600",
+    link: "https://www.facebook.com/g.lap.raj",
+  },
   { icon: <Linkedin />, color: "text-blue-400", link: "https://linkedin.com" },
-  { icon: <Github />, color: "text-white", link: "https://github.com" },
+  {
+    icon: <Github />,
+    color: "text-white",
+    link: "https://github.com/md-tahmid-hasan-golap",
+  },
 ];
 
 const socialVariants = {
