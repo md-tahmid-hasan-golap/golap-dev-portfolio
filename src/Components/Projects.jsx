@@ -11,7 +11,7 @@ const Projects = () => {
     {
       name: "MyShop",
       title: "Next.js Authentication-based Product Shop.",
-      img: "/nextshop.png", // এখানে তোর প্রজেক্টের thumbnail দিবি
+      img: "/nextshop.png",
       tech: [
         "Next.js",
         "NextAuth.js",
