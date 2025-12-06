@@ -43,6 +43,41 @@ const Modal = ({ project, onClose }) => {
                 </span>
               ))}
             </div>
+
+            {/* 🔥 Links Section (Client, Server, Live) */}
+
+            <div className="flex items-center flex-wrap gap-5 md:gap-7 mt-5">
+              <h3 className="text-white font-semibold ">Project Links</h3>
+              {project.client && (
+                <a
+                  href={project.client}
+                  target="_blank"
+                  className="text-cyan-400 underline"
+                >
+                  Client
+                </a>
+              )}
+
+              {project.server && (
+                <a
+                  href={project.server}
+                  target="_blank"
+                  className="text-cyan-400 underline"
+                >
+                  Server
+                </a>
+              )}
+
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  className="text-cyan-400 underline"
+                >
+                  Live
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </motion.div>

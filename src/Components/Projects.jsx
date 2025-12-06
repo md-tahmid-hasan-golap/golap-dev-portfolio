@@ -32,9 +32,10 @@ const Projects = () => {
       title: "Modern web platform for global trade.",
       img: "/emportExportHub.png",
       tech: ["React", "Tailwind", "Node", "Express", "MongoDB", "Firebase"],
-      client: "https://github.com/md-tahmid-hasan-golap/Import-Export-Hub",
+      client:
+        "https://github.com/md-tahmid-hasan-golap/Import-Export-Hub-Client-side",
       server:
-        "https://github.com/md-tahmid-hasan-golap/Import-Export-Hub-Server",
+        "https://github.com/md-tahmid-hasan-golap/Import-Export-Hub-Server-side",
       live: "https://import-export-2d0aa.web.app/",
       description:
         "Import Export Hub enables users to manage exports, explore products, and import items efficiently with authentication and private routes.",
@@ -55,7 +56,7 @@ const Projects = () => {
       img: "/green.png",
       tech: ["Html", "Css", "Tailwind", "DaisyUI"],
       client: "https://github.com/md-tahmid-hasan-golap/Assignment-Six",
-      live: "https://gamehub-bae91.web.app/",
+      live: "https://tangerine-profiterole-b07be1.netlify.app/",
       description:
         "Join our mission to plant 1 million trees and make the Earth greener for future generations",
     },
