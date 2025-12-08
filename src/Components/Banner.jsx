@@ -2,6 +2,7 @@ import React from "react";
 import { Download, Facebook, Linkedin, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import golap from "../../src/assets/unnamed (2).jpg";
+import golap2 from "../../src/assets/workTimePhoto.png";
 
 const socialIcons = [
   {
@@ -60,10 +61,10 @@ const Banner = () => {
             ))}
           </motion.div>
 
-          {/* TEXT */}
+          {/* TEXT CONTENT */}
           <div className="flex flex-col justify-center space-y-4 md:space-y-5 text-center md:text-left">
             <motion.h3
-              className="text-lg md:text-xl lg:text-2xl font-medium"
+              className="text-lg md:text-xl lg:text-3xl font-medium"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -103,7 +104,7 @@ const Banner = () => {
           </div>
         </motion.div>
 
-        {/* RIGHT IMAGE */}
+        {/* RIGHT IMAGE (Two Photos with Hover Effect) */}
         <motion.div
           className="flex-1 flex justify-center items-center"
           initial={{ opacity: 0, x: 50 }}
@@ -111,16 +112,25 @@ const Banner = () => {
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="w-56 sm:w-64 md:w-72 lg:w-80 rounded-2xl overflow-hidden border-2 border-gray-700 shadow-xl bg-gray-900"
+            className="relative w-56 sm:w-64 md:w-72 lg:w-80 rounded-2xl overflow-hidden border-2 border-gray-700 shadow-xl bg-gray-900"
             whileHover={{
               scale: 1.05,
               boxShadow: "0px 20px 40px rgba(0,0,0,0.5)",
             }}
           >
+            {/* First Image */}
+            <img
+              src={golap2}
+              alt="Golap"
+              className="w-full h-full object-cover transition-opacity duration-500"
+            />
+
+            {/* Second Image (Hover image) */}
             <img
               src={golap}
-              alt="Golap"
-              className="w-full h-full object-cover"
+              alt="Golap Work Time"
+              className="absolute inset-0 w-full h-full object-cover 
+              opacity-0 hover:opacity-100 transition-opacity duration-500"
             />
           </motion.div>
         </motion.div>
