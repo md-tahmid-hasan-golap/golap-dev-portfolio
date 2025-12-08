@@ -1,7 +1,7 @@
 import React from "react";
 import { Download, Facebook, Linkedin, Github } from "lucide-react";
 import { motion } from "framer-motion";
-import golap from "../../src/assets/unnamed (2).jpg";
+import golap from "../../src/assets/work_time_morning_picture.png";
 import golap2 from "../../src/assets/workTimePhoto.png";
 
 const socialIcons = [
