@@ -3,11 +3,25 @@ import { Facebook, Github, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const handleEmailClick = () => {
+    // Primary mailto open
+    window.location.href =
+      "mailto:tahmidhasangolap@gmail.com?subject=Hello&body=I%20want%20to%20contact%20you";
+
+    // Fallback for desktop if mail client doesn't open
+    setTimeout(() => {
+      window.open(
+        "https://mail.google.com/mail/?view=cm&fs=1&to=tahmidhasangolap@gmail.com&su=Hello&body=I%20want%20to%20contact%20you",
+        "_blank"
+      );
+    }, 700);
+  };
+
   const contacts = [
     {
       name: "Email",
       icon: <Mail size={22} className="text-[#EA4335]" />,
-      link: "mailto:tahmidhasangolap@gmail.com",
+      onClick: handleEmailClick,
     },
     {
       name: "Phone",
@@ -48,7 +62,6 @@ const Contact = () => {
 
   return (
     <div className="py-16 px-4 sm:px-6 md:px-8 bg-black">
-      {/* HEADING + SUB TEXT */}
       <motion.div
         className="text-center text-white max-w-3xl mx-auto mb-12"
         initial={{ opacity: 0, y: 20 }}
@@ -67,7 +80,6 @@ const Contact = () => {
         </p>
       </motion.div>
 
-      {/* CONTACT GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-5xl mx-auto">
         {contacts.map((item, index) => (
           <motion.div
@@ -78,11 +90,12 @@ const Contact = () => {
             transition={{ duration: 0.55, delay: index * 0.08 }}
           >
             <motion.a
-              href={item.link}
-              target="_blank"
+              href={item.link ? item.link : undefined}
+              onClick={item.onClick ? item.onClick : undefined}
+              target={item.link ? "_blank" : undefined}
               rel="noopener noreferrer"
               className="flex items-center gap-3 border border-cyan-400 text-white py-4 rounded-2xl 
-                         hover:bg-cyan-900/40 transition px-6 justify-center shadow-sm backdrop-blur-sm"
+                          hover:bg-cyan-900/40 transition px-6 justify-center shadow-sm backdrop-blur-sm cursor-pointer"
               whileHover={{
                 scale: 1.07,
                 boxShadow: "0px 8px 22px rgba(0,255,255,0.3)",
