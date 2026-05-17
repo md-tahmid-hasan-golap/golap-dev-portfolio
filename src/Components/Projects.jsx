@@ -9,6 +9,28 @@ const Projects = () => {
 
   const projects = [
     {
+      name: "eTuitionBd",
+      title: "MERN-Stack Tuition Management Platform.",
+      img: "/Screenshot 2026-05-17 120728.png",
+      tech: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase Auth",
+        "JWT Token",
+        "Stripe",
+        "Tailwind CSS",
+        "DaisyUI",
+        "Framer Motion",
+      ],
+      client: "https://github.com/md-tahmid-hasan-golap/eTuitionBd-client",
+      server: "https://github.com/md-tahmid-hasan-golap/eTuitionBd-server",
+      live: "https://e-tuition-bd-client-eight.vercel.app/",
+      description:
+        "eTuitionBd is a comprehensive tuition management ecosystem with fully separated, role-based dashboards for Students, Tutors, and Admins. It features secure JWT authentication, advanced search/filtering, automated tutor application approval tied directly to Stripe payment integration, real-time platform transaction analytics, and smooth Framer Motion animations.",
+    },
+    {
       name: "MyShop",
       title: "Next.js Authentication-based Product Shop.",
       img: "/nextshop.png",
