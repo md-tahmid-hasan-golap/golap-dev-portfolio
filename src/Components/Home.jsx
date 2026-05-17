@@ -7,24 +7,24 @@ import About from "./About";
 
 const Home = () => {
   return (
-    <div>
-      <section id="home">
+    <div className="w-full overflow-x-hidden">
+      <section id="home" className="scroll-mt-20">
         <Banner />
       </section>
 
-      <section id="about">
+      <section id="about" className="scroll-mt-20">
         <About />
       </section>
 
-      <section id="skills">
+      <section id="skills" className="scroll-mt-20">
         <Skills />
       </section>
 
-      <section id="projects">
+      <section id="projects" className="scroll-mt-20">
         <Projects />
       </section>
 
-      <section id="contact">
+      <section id="contact" className="scroll-mt-20">
         <Contact />
       </section>
     </div>

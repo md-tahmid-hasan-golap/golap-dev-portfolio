@@ -1,4 +1,3 @@
-// SnowfallAnimation.jsx
 import React, { useEffect, useRef } from "react";
 
 const SnowfallAnimation = () => {
@@ -6,25 +5,27 @@ const SnowfallAnimation = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    if (!canvas) return;
 
+    const ctx = canvas.getContext("2d");
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
     const snowflakes = [];
-    const maxFlakes = 50; // subtle number
+    const maxFlakes = 50;
 
     for (let i = 0; i < maxFlakes; i++) {
       snowflakes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        r: Math.random() * 1.5 + 0.5, // very small dots
+        r: Math.random() * 1.5 + 0.5,
         d: Math.random() + 0.2,
-        opacity: Math.random() * 0.5 + 0.2, // light and subtle
+        opacity: Math.random() * 0.5 + 0.2,
       });
     }
 
     let angle = 0;
+    let animationId;
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
@@ -44,7 +45,6 @@ const SnowfallAnimation = () => {
         const f = snowflakes[i];
         f.y += Math.pow(f.d, 2) * 0.3;
         f.x += Math.sin(angle) * 0.3;
-
         if (f.y > height) {
           f.y = -5;
           f.x = Math.random() * width;
@@ -54,7 +54,7 @@ const SnowfallAnimation = () => {
 
     const animate = () => {
       draw();
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
 
     animate();
@@ -65,21 +65,17 @@ const SnowfallAnimation = () => {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationId);
+    };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        pointerEvents: "none",
-        zIndex: 9999,
-      }}
+      className="pointer-events-none fixed inset-0 z-[1]"
+      aria-hidden="true"
     />
   );
 };

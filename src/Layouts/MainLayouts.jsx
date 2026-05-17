@@ -6,13 +6,16 @@ import Home from "../Components/Home";
 
 const MainLayouts = () => {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen flex flex-col overflow-x-hidden bg-[#07070d]">
+      <div
+        className="pointer-events-none fixed inset-0 z-0 gradient-mesh"
+        aria-hidden="true"
+      />
       <Navbar />
-      <div className="relative z-0">
+      <main className="relative z-10 flex-1">
         <SnowfallAnimation />
-
-        <Home></Home>
-      </div>
+        <Home />
+      </main>
       <Footer />
     </div>
   );

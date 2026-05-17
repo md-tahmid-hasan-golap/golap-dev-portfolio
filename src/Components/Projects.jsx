@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-
 import Modal from "./Modal";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import ProjectCard from "./ProjectCard ";
+import SectionHeader from "./ui/SectionHeader";
 
 const Projects = () => {
   const [selected, setSelected] = useState(null);
@@ -85,26 +85,27 @@ const Projects = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="p-6 bg-black min-h-screen"
-    >
-      <h2 className="text-3xl font-bold pt-5 pb-10 text-white">Projects</h2>
+    <section className="section-padding border-t border-white/5">
+      <div className="section-container">
+        <SectionHeader
+          label="Portfolio"
+          title="Featured Projects"
+          description="Real-world applications showcasing full-stack development, auth, and modern UI."
+        />
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {projects.map((p, i) => (
-          <ProjectCard key={i} project={p} onOpen={setSelected} />
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6 auto-rows-fr">
+          {projects.map((p, i) => (
+            <ProjectCard key={p.name + i} project={p} onOpen={setSelected} />
+          ))}
+        </div>
+
+        <AnimatePresence>
+          {selected && (
+            <Modal project={selected} onClose={() => setSelected(null)} />
+          )}
+        </AnimatePresence>
       </div>
-
-      <AnimatePresence>
-        {selected && (
-          <Modal project={selected} onClose={() => setSelected(null)} />
-        )}
-      </AnimatePresence>
-    </motion.div>
+    </section>
   );
 };
 

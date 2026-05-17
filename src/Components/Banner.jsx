@@ -1,20 +1,28 @@
 import React from "react";
-import { Download, Facebook, Linkedin, Github } from "lucide-react";
+import { Download, Facebook, Linkedin, Github, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 import golap from "../assets/unnamed (2).jpg";
 import golap2 from "../assets/workTimePhoto.png";
 
 const socialIcons = [
   {
-    icon: <Facebook />,
-    color: "text-blue-600",
+    icon: <Facebook size={20} />,
+    color: "hover:text-blue-400",
     link: "https://www.facebook.com/g.lap.raj",
+    label: "Facebook",
   },
-  { icon: <Linkedin />, color: "text-blue-400", link: "https://linkedin.com" },
   {
-    icon: <Github />,
-    color: "text-white",
+    icon: <Linkedin size={20} />,
+    color: "hover:text-sky-400",
+    link: "https://linkedin.com",
+    label: "LinkedIn",
+  },
+  {
+    icon: <Github size={20} />,
+    color: "hover:text-white",
     link: "https://github.com/md-tahmid-hasan-golap",
+    label: "GitHub",
   },
 ];
 
@@ -29,113 +37,180 @@ const socialVariants = {
 
 const Banner = () => {
   return (
-    <div className="w-full bg-black text-white py-16 px-6 md:px-12 lg:px-16">
-      <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-6">
-        {/* LEFT TEXT */}
-        <motion.div
-          className="flex-1 flex items-center md:items-start gap-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          {/* Social Icons */}
+    <section className="section-padding relative overflow-hidden">
+      <div className="section-container">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
-            className="hidden md:flex flex-col space-y-5 text-2xl"
-            initial="hidden"
-            animate="visible"
+            className="order-2 lg:order-1 flex flex-col"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {socialIcons.map((item, i) => (
-              <motion.a
-                key={i}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`hover:scale-110 transition-transform duration-300 ${item.color}`}
-                custom={i}
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 lg:gap-8">
+              <motion.div
+                className="hidden sm:flex flex-col gap-3"
                 initial="hidden"
                 animate="visible"
-                variants={socialVariants}
+                aria-label="Social links"
               >
-                {item.icon}
-              </motion.a>
-            ))}
-          </motion.div>
+                {socialIcons.map((item, i) => (
+                  <motion.a
+                    key={item.label}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.label}
+                    className={`flex h-11 w-11 items-center justify-center rounded-xl glass-card text-slate-400 transition-all duration-300 hover:scale-105 hover:border-cyan-400/30 ${item.color}`}
+                    custom={i}
+                    initial="hidden"
+                    animate="visible"
+                    variants={socialVariants}
+                  >
+                    {item.icon}
+                  </motion.a>
+                ))}
+              </motion.div>
 
-          {/* TEXT CONTENT */}
-          <div className="flex flex-col justify-center space-y-4 md:space-y-5 text-center md:text-left">
-            <motion.h3
-              className="text-lg md:text-xl lg:text-3xl font-medium"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              Hi, I'm <span className="text-blue-400">Tahmid Hasan Golap</span>
-              <span className="text-blue-400">&lt;/&gt;</span>
-            </motion.h3>
+              <div className="flex-1 text-center sm:text-left space-y-5 md:space-y-6">
+                <motion.p
+                  className="inline-flex items-center gap-2 text-sm sm:text-base font-medium text-cyan-400/90"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                  <span
+                    className="h-px w-8 bg-cyan-400/50 hidden sm:block"
+                    aria-hidden="true"
+                  />
+                  Hi, I&apos;m{" "}
+                  <span className="text-white font-semibold">Tahmid Hasan Golap</span>
+                  <span className="text-cyan-400 font-mono">&lt;/&gt;</span>
+                </motion.p>
 
-            <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold leading-snug md:leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-            >
-              MERN Stack Developer
-            </motion.h1>
+                <motion.h1
+                  className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55, duration: 0.7 }}
+                >
+                  MERN Stack{" "}
+                  <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                    Developer
+                  </span>
+                </motion.h1>
 
-            {/* Resume Button */}
-            <div className="flex justify-center md:justify-start">
-              <motion.button
-                className="flex items-center gap-2 bg-[#0A6375] hover:bg-[#087088] transition-all px-6 py-3 rounded-xl text-lg font-semibold shadow-lg"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 10px 20px rgba(10,99,117,0.5)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  const link = document.createElement("a");
-                  link.href = "/Resume_of_Tahmid_Hasan_Golap.pdf";
-                  link.download = "Tahmid_Hasan_Golap_Resume.pdf";
-                  link.click();
-                }}
-              >
-                Resume <Download size={20} />
-              </motion.button>
+                <motion.p
+                  className="text-slate-400 text-base sm:text-lg max-w-xl mx-auto sm:mx-0 leading-relaxed"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                >
+                  I build clean, scalable web applications with React, Node.js, and
+                  modern tooling — focused on performance and polished user experience.
+                </motion.p>
+
+                <motion.div
+                  className="flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 pt-2"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.85, duration: 0.6 }}
+                >
+                  <motion.button
+                    type="button"
+                    className="btn-primary w-full sm:w-auto min-h-[48px]"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => {
+                      const link = document.createElement("a");
+                      link.href = "/Resume_of_Tahmid_Hasan_Golap.pdf";
+                      link.download = "Tahmid_Hasan_Golap_Resume.pdf";
+                      link.click();
+                    }}
+                  >
+                    Download Resume
+                    <Download size={18} aria-hidden="true" />
+                  </motion.button>
+
+                  <Link
+                    to="projects"
+                    smooth={true}
+                    duration={700}
+                    offset={-80}
+                    className="btn-ghost w-full sm:w-auto min-h-[48px] cursor-pointer"
+                  >
+                    View Projects
+                  </Link>
+                </motion.div>
+
+                <div className="flex sm:hidden justify-center gap-3 pt-2">
+                  {socialIcons.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={item.label}
+                      className={`flex h-11 w-11 items-center justify-center rounded-xl glass-card text-slate-400 transition-all ${item.color}`}
+                    >
+                      {item.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </motion.div>
 
-        {/* RIGHT IMAGE (Two Photos with Hover Effect) */}
-        <motion.div
-          className="flex-1 flex justify-center items-center"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <motion.div
-            className="relative w-56 sm:w-64 md:w-72 lg:w-80 rounded-2xl overflow-hidden border-2 border-gray-700 shadow-xl bg-gray-900"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0px 20px 40px rgba(0,0,0,0.5)",
-            }}
-          >
-            {/* First Image */}
-            <img
-              src={golap2}
-              alt="Golap"
-              className="w-full h-full object-cover transition-opacity duration-500"
-            />
-
-            {/* Second Image (Hover image) */}
-            <img
-              src={golap}
-              alt="Golap Work Time"
-              className="absolute inset-0 w-full h-full object-cover 
-              opacity-0 hover:opacity-100 transition-opacity duration-500"
-            />
+            <motion.div
+              className="hidden lg:flex justify-start mt-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+            >
+              <Link
+                to="about"
+                smooth={true}
+                duration={700}
+                offset={-80}
+                className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer"
+                aria-label="Scroll to about section"
+              >
+                <ArrowDown className="h-4 w-4 animate-bounce" aria-hidden="true" />
+                Scroll to explore
+              </Link>
+            </motion.div>
           </motion.div>
-        </motion.div>
+
+          <motion.div
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+          >
+            <motion.div
+              className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-sm xl:max-w-md"
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <motion.div
+                className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-cyan-500/20 via-transparent to-indigo-500/10 blur-2xl"
+                aria-hidden="true"
+              />
+              <div className="relative aspect-[4/5] rounded-2xl lg:rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-black/50 bg-slate-900/50 group">
+                <img
+                  src={golap2}
+                  alt="Tahmid Hasan Golap"
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                />
+                <img
+                  src={golap}
+                  alt="Tahmid Hasan Golap at work"
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
