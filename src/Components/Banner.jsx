@@ -83,7 +83,9 @@ const Banner = () => {
                     aria-hidden="true"
                   />
                   Hi, I&apos;m{" "}
-                  <span className="text-white font-semibold">Tahmid Hasan Golap</span>
+                  <span className="text-white font-semibold">
+                    Tahmid Hasan Golap
+                  </span>
                   <span className="text-cyan-400 font-mono">&lt;/&gt;</span>
                 </motion.p>
 
@@ -105,8 +107,9 @@ const Banner = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7, duration: 0.6 }}
                 >
-                  I build clean, scalable web applications with React, Node.js, and
-                  modern tooling — focused on performance and polished user experience.
+                  I build clean, scalable web applications with React, Node.js,
+                  and modern tooling — focused on performance and polished user
+                  experience.
                 </motion.p>
 
                 <motion.div
@@ -173,7 +176,10 @@ const Banner = () => {
                 className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer"
                 aria-label="Scroll to about section"
               >
-                <ArrowDown className="h-4 w-4 animate-bounce" aria-hidden="true" />
+                <ArrowDown
+                  className="h-4 w-4 animate-bounce"
+                  aria-hidden="true"
+                />
                 Scroll to explore
               </Link>
             </motion.div>
