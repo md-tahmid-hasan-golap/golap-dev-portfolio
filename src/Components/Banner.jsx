@@ -125,7 +125,7 @@ const Banner = () => {
                     whileTap={{ scale: 0.97 }}
                     onClick={() => {
                       const link = document.createElement("a");
-                      link.href = "/public/Resume_of_Tahmid_Hasan_Golap.pdf";
+                      link.href = "/Resume_of_Tahmid_Hasan_Golap.pdf";
                       link.download = "Resume_of_Tahmid_Hasan_Golap.pdf";
                       link.click();
                     }}
