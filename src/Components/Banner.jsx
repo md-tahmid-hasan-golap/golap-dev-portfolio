@@ -108,7 +108,7 @@ const Banner = () => {
                   transition={{ delay: 0.7, duration: 0.6 }}
                 >
                   I build clean, scalable web applications with React, Node.js,
-                  and modern tooling — focused on performance and polished user
+                  and modern tooling focused on performance and polished user
                   experience.
                 </motion.p>
 
