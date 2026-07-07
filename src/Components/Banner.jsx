@@ -124,10 +124,11 @@ const Banner = () => {
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     onClick={() => {
-                      const link = document.createElement("a");
-                      link.href = "/Resume_of_Tahmid_Hasan_Golap.pdf";
-                      link.download = "Resume_of_Tahmid_Hasan_Golap.pdf";
-                      link.click();
+                      window.open(
+                        "https://drive.google.com/file/d/14SU2s1AupyMYiSN2xT40jp0GZM2ahTIu/view?usp=sharing",
+                        "_blank",
+                        "noopener,noreferrer",
+                      );
                     }}
                   >
                     Download Resume
