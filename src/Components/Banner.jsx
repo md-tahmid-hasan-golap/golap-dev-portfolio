@@ -131,7 +131,7 @@ const Banner = () => {
                       );
                     }}
                   >
-                    Download Resume
+                    View Resume
                     <Download size={18} aria-hidden="true" />
                   </motion.button>
 
