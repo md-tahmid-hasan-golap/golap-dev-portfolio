@@ -11,7 +11,7 @@ const Contact = () => {
     setTimeout(() => {
       window.open(
         "https://mail.google.com/mail/?view=cm&fs=1&to=tahmidhasangolap@gmail.com&su=Hello&body=I%20want%20to%20contact%20you",
-        "_blank"
+        "_blank",
       );
     }, 700);
   };
